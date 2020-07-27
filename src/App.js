@@ -5,27 +5,21 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 
-import { addFeature, removeFeature } from "./actions/featureAction";
+import { addFeature, removeFeature } from "./actions/featureAction.js";
 
-const App = (
-  car,
-  additionalPrice,
-  additionalFeatures,
-  addFeature,
-  removeFeature
-) => {
+const App = (props) => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={car} />
-        <AddedFeatures car={car} removeFeature={removeFeature} />
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={props.removeFeature} />
       </div>
       <div className="box">
         <AdditionalFeatures
-          additionalFeatures={additionalFeatures}
-          addFeature={addFeature}
+          additionalFeatures={props.additionalFeatures}
+          addFeature={props.addFeature}
         />
-        <Total car={car} additionalPrice={additionalPrice} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
